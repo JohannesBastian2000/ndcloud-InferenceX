@@ -798,3 +798,11 @@
     - "Image: lmsysorg/sglang:v0.5.9-rocm720-mi30x"
     - "Uses triton attention backend, TP=8, concurrency 4-64"
   pr-link: https://github.com/SemiAnalysisAI/InferenceX/pull/XXX
+
+- config-keys:
+    - qwen3.5-bf16-mi300x-sglang
+  description:
+    - "Add Qwen3.5-397B-A17B BF16 SGLang benchmark for MI300X"
+    - "Image: lmsysorg/sglang:v0.5.9-rocm720-mi30x"
+    - "Uses triton attention backend, TP=8, concurrency 4-64"
+  pr-link: https://github.com/SemiAnalysisAI/InferenceX/pull/843
