@@ -38,7 +38,8 @@ python3 -m sglang.launch_server \
     --mem-fraction-static 0.8 --disable-radix-cache \
     --num-continuous-decode-steps 4 \
     --max-prefill-tokens 196608 \
-    --cuda-graph-max-bs $CONC > $SERVER_LOG 2>&1 &
+    --kv-cache-dtype fp8_e4m3 \
+    --cuda-graph-max-bs "$CONC" > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
 
