@@ -14,7 +14,7 @@ jobs:
   get-jobs:
     # Only run for PR comments that start with /sweep
     if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/sweep') }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       pr-number: ${{ steps.parse.outputs.pr-number }}
       generator-args: ${{ steps.parse.outputs.generator-args }}
@@ -111,7 +111,7 @@ jobs:
   approval:
     needs: get-jobs
     if: ${{ github.event_name == 'issue_comment' && needs.get-jobs.outputs.pr-number != '' && needs.get-jobs.outputs.generator-args != '' && needs.get-jobs.outputs.author-can-bypass != 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: self.hosted
     name: approval
     environment: Outside Collaborator E2E Test
     steps:
