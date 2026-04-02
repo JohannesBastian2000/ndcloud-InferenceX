@@ -40,7 +40,7 @@ env:
 
 jobs:
   get-jobs:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       filtered-matrix: ${{ steps.filter.outputs.filtered }}
       count: ${{ steps.filter.outputs.count }}
@@ -98,7 +98,7 @@ jobs:
       fail-fast: false
       matrix:
         config: ${{ fromJson(needs.get-jobs.outputs.filtered-matrix) }}
-    runs-on: ${{ matrix.config.runner }}
+    runs-on: self-hosted
     env:
       EXP_NAME: ${{ matrix.config.exp-name }}
       MODEL: ${{ matrix.config.model }}
