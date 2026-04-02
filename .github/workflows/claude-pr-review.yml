@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   review:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     # Only run if:
     # 1. It's a PR event from someone with write access, OR
     # 2. It's a comment containing @pr-claude from someone with write access
