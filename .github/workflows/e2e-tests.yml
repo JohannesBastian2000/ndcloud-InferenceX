@@ -53,6 +53,12 @@ jobs:
               run: |
                   echo "/home/taiga-support/.pyenv/shims" >> $GITHUB_PATH
 
+            - name: Debug Python path
+              run: |
+                which python3
+                which pip
+                echo $PATH
+
             - id: get-jobs
               run: |
                   pip install pydantic
