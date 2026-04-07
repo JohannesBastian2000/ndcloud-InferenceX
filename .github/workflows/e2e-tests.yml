@@ -33,7 +33,7 @@ on:
 
 jobs:
     get-jobs:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         outputs:
             single-node-config: ${{ steps.get-jobs.outputs.single-node-config }}
             multi-node-config: ${{ steps.get-jobs.outputs.multi-node-config }}
@@ -48,16 +48,6 @@ jobs:
             - name: Checkout code (default)
               if: ${{ !inputs.ref || inputs.ref == '' }}
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
-            - name: Set Python path
-              run: |
-                  echo "/home/taiga-support/.pyenv/shims" >> $GITHUB_PATH
-
-            - name: Debug Python path
-              run: |
-                which python3
-                which pip
-                echo $PATH
 
             - id: get-jobs
               run: |
@@ -187,7 +177,7 @@ jobs:
     calc-success-rate:
         needs: [collect-results, collect-evals]
         if: ${{ always() }}
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
 
         env:
             RESULTS_DIR: "results/"
